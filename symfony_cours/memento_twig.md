@@ -11,10 +11,10 @@ resource : https://twig.symfony.com/
   <p>{{user.date_naissance |date('d-m-y')}}</p>
   resource : https://twig.symfony.com/doc/3.x/filters/date.html
 
-## condition et boucle
+## condition et boucle 
 {# condition twig#}
 {% if droit == true %}
-    {# boucle for pour twig#}
+  {# boucle for pour twig#}
         {% for book in books %}
             <div>
                 <h2>{{book.titre}}</h2>

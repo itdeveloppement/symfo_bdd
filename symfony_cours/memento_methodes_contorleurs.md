@@ -1,32 +1,6 @@
 **symfony**
-
-livre de reference : https://symfony.com/doc/6.4/the-fast-track/fr/index.html
-site : https://symfony.com/
-
-
-**Instal symphony**
-
-    • intsall php au moins 8.2
-    • install composer
-    • install l’aragon (serveur local) pour activier une base de donnée en local (phpmyadmin)
-    • install phpmyadmin (via laragon)
-        ◦ php admin
-        ◦ user : root
-        ◦ password : chaîne de caractère vide
-    • installer scoop : 
-      rôle : installeur
-    • installer symfony CLI : 
-        rôle : permet de se servir de symfony en ligne de commande
-
-***Création d’un projet**
-    • dans c : / laraon / www
-    • cmd dans le terminal : symfony new –webapp nomduprojet (webapp permet de charger toutes les dépendances)
-
-**Commande terminal en resumé :**
-    • cmd créer un projet : symfony new –webapp nomduprojet
-    • cmd céer pour demarrer le serveur : symfony server:start 
-    • cmd pour arrtere le serveyr : ctl c ou server:stop
-    • cmd pour créer le controleur : symfony console make:controller
+## Créer un Controller
+cmd : symfony console make:controller
 
 ## methode php-symphonie
     • dd() 
@@ -97,5 +71,18 @@ if ($request->isMethod('POST')) {
 }
 
 ## Methode pour recuperer un parametre dans url
-- injonction de dependance
-- objet request
+
+SOLUTION 1 (avec injonction de dependence)
+    #[Route('/detail/user/{id}', name: 'user_userCard')]
+    public function userCard(int $id): Response
+    {
+        ... mon code avec la possibilité d'utiliser la variable $id
+    }
+
+SOLUTION 2 (avec Request)
+    #[Route('/detail/user', name: 'user_userCard')]
+    public function userCard(Request $request): Response
+    {
+    $id = $request->query->get('id');
+        ... mon code avec la possibilité d'utiliser la variable $id
+    }

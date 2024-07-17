@@ -59,6 +59,10 @@ Dans un template de base, vous définissez des blocs avec `{% block nomdublock %
 
 Un template enfant hérite du template de base et peut remplacer ou ajouter du contenu aux blocs définis dans le template de base.
 
+{% extends 'base.html.twig' %}
+// modifie le template e base 
+{% block title %}Utilisateur{% endblock %}
+
 ##### Exemple d'un Template Enfant
 
 ```twig
